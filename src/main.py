@@ -17,6 +17,10 @@ class StepResponse(BaseModel):
     done: bool
     info: Dict[str, Any]
 
+@app.get("/")
+def read_root():
+    return {"status": "ok", "message": "Shadow AI Detection Environment is running."}
+
 @app.post("/reset", response_model=Observation)
 def reset_env(req: ResetRequest):
     return env.reset(task_id=req.task_id)
