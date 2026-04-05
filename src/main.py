@@ -22,7 +22,9 @@ def read_root():
     return {"status": "ok", "message": "Shadow AI Detection Environment is running."}
 
 @app.post("/reset", response_model=Observation)
-def reset_env(req: ResetRequest):
+def reset_env(req: ResetRequest = None):
+    if req is None:
+        req = ResetRequest()
     return env.reset(task_id=req.task_id)
 
 @app.post("/step", response_model=StepResponse)

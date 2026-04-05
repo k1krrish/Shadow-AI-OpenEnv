@@ -4,3 +4,4 @@ pydantic
 openai
 numpy
 python-dotenv
+requests
