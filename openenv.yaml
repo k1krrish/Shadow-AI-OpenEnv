@@ -1,0 +1,13 @@
+name: "shadow_ai_detection"
+description: "Shadow AI Detection and Risk Scoring Environment"
+version: "1.0.0"
+tasks:
+  - id: "easy"
+    description: "Detect obvious Shadow AI usage with direct misuse patterns."
+  - id: "medium"
+    description: "Detect subtle behavioral anomalies requiring pattern recognition over time."
+  - id: "hard"
+    description: "Detect adversarial evasion patterns and blended behavior."
+docker:
+  build: "Dockerfile"
+entrypoint: "uvicorn src.main:app --host 0.0.0.0 --port 7860"
